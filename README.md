@@ -1,4 +1,4 @@
-## Weather Component
+## Weather React Component
 
 This component shows info about cities next 5 days forecast searched in [MetaWeather api](https://www.metaweather.com/)
 To use all you need is provide in props an array with cities that you want to show and the respectives [woeid](https://pt.wikipedia.org/wiki/WOEID).
