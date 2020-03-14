@@ -3,13 +3,19 @@ import { WeatherContainer, Spinner } from './styles';
 import { WeatherList } from './list';
 import { HeaderWeather } from './header';
 import api from './service/api';
+import PropTypes from 'prop-types'; 
 
-export function Weather(props) {
+Weather.propTypes= {
+    cities: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        woeid: PropTypes.number.isRequired
+    })).isRequired
+}
+export function Weather({cities=[{name: 'São Paulo', woeid: 455827}]}) {
 
     const[forecast, setForecast] = useState([]);
     const[loading, setLoading] = useState(false);
-    const cities =  props.cities
-
+    
     async function searchWeather(id) {
 
         try {      
