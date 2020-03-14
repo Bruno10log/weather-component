@@ -15,17 +15,24 @@ export function Weather({cities=[{name: 'São Paulo', woeid: 455827}]}) {
 
     const[forecast, setForecast] = useState([]);
     const[loading, setLoading] = useState(false);
-    
+
     async function searchWeather(id) {
 
         try {      
             setLoading(true);
 
-            const response = await api.get(`location/${id}`);
+            const item = sessionStorage.getItem(id + '' + new Date().getDay());
             
-            if(response) {
-                setForecast(response.data.consolidated_weather);
+            if(item) {
+                setForecast(JSON.parse(item));
+            } else {
+                const response = await api.get(`location/${id}`);
+                if(response) {
+                    setForecast(response.data.consolidated_weather);
+                    sessionStorage.setItem(id + '' + new Date().getDay(), JSON.stringify(response.data.consolidated_weather))
+                }
             }
+            
         }catch(e) {
             console.log(e);
             alert('Ops, something went wrong!')

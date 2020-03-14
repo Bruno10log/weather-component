@@ -17,4 +17,8 @@ export const WeatherButton = styled.button`
     background-color: ${props => props.selected ? '#5c7e9d' : 'white'};
     border-radius: 6px;
     font-size: 25px;
+
+    :hover {
+        cursor: pointer;
+    }
 `;
