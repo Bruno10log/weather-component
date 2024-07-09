@@ -33,7 +33,6 @@ function App() {
 }
 ```
 
-You could see this working [here](https://weather-component-49c90.firebaseapp.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
